@@ -12,20 +12,24 @@ import requests
 import threading
 from UniQuantumSense_face_detection import load_image, run_quantum_circuit_qiskit
 
+# Load environment variables
+from load_env import load_dotenv
+load_dotenv()
+
 # Initialize Sentry for error monitoring
 sentry_sdk.init(
-    dsn="https://0f4baeee61d8ea6e3b18679e147e8775@o4509172980383744.ingest.us.sentry.io/4509173006139392",
+    dsn=os.getenv("SENTRY_DSN"),  
     send_default_pii=True,
 )
 
 # Connect to PostgreSQL
 def connect_db():
     return psycopg2.connect(
-        dbname="postgres",
-        user="postgres",
-        password="@XyYxLoOl662@$%",
-        host="localhost",
-        port="5432"
+        dbname=os.getenv("DB_NAME"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        host=os.getenv("DB_HOST"),
+        port=os.getenv("DB_PORT")
     )
 
 # WebSocket Server Function
