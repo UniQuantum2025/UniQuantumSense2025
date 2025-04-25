@@ -5,7 +5,7 @@ from tensorflow.keras.preprocessing import image
 import os
 
 # Load the trained model
-model = load_model('facial_detection_model.keras')
+model = load_model(r"C:\Users\wildw\OneDrive\Desktop\UniQuantumSense\models\facial_detection_model.keras")
 
 # Function to load and preprocess images
 def load_and_preprocess_image(img_path):
@@ -30,12 +30,24 @@ def measure_performance(img_path):
 
     return load_time, prediction_time
 
-# Test Cases with paths
-test_cases = {
-    "Single Image (Facial)": r"C:\Users\wildw\OneDrive\Documents\CMIT-450 Senior Seminar Project\Assignment\Week 14\UniQuantumSense\UniQ2025\Dataset\Trained Images\Faces\your_facial_image.jpg",  # Replace with actual image name
-    "Single Image (Non-Facial)": r"C:\Users\wildw\OneDrive\Documents\CMIT-450 Senior Seminar Project\Assignment\Week 14\UniQuantumSense\UniQ2025\Dataset\Trained Images\Non_Faces\your_non_facial_image.jpg",  # Replace with actual image name
-    "Multiple Images": r"C:\Users\wildw\OneDrive\Documents\CMIT-450 Senior Seminar Project\Assignment\Week 14\UniQuantumSense\UniQ2025\Dataset\Predict Images\your_multiple_images.jpg"  # Replace with actual image name
-}
+# Test Cases with updated paths
+test_cases = {}
+
+# Adding facial images from 1.png to 95.png
+for i in range(1, 96):  # From 1 to 95
+    test_cases[f"Single Image (Facial) {i}"] = r"C:\Users\wildw\OneDrive\Desktop\UniQuantumSense\Dataset\Trained Images\Faces\{}.png".format(i)
+
+# Adding non-facial images (136.jpg to 170.jpg)
+for i in range(136, 171):  # From 136 to 170
+    test_cases[f"Single Image (Non-Facial) {i}"] = r"C:\Users\wildw\OneDrive\Desktop\UniQuantumSense\Dataset\Trained Images\Non_Faces\{}.jpg".format(i)
+
+# Adding additional non-facial images (171.jpg to 181.jpg)
+for i in range(171, 182):  # From 171 to 181
+    test_cases[f"Single Image (Non-Facial) {i}"] = r"C:\Users\wildw\OneDrive\Desktop\UniQuantumSense\Dataset\Trained Images\Non_Faces\{}.jpg".format(i)
+
+# Adding additional non-facial images (196.jpg to 199.jpg)
+for i in range(196, 200):  # From 196 to 199
+    test_cases[f"Single Image (Non-Facial) {i}"] = r"C:\Users\wildw\OneDrive\Desktop\UniQuantumSense\Dataset\Trained Images\Non_Faces\{}.jpg".format(i)
 
 # Execute tests
 for case, img_path in test_cases.items():

@@ -2,7 +2,7 @@ import os
 import tensorflow as tf
 
 # Define the model path
-model_path = r"C:\Users\wildw\OneDrive\Documents\CMIT-450 Senior Seminar Project\Assignment\Week 14\UniQuantumSense\UniQ2025\Dataset\facial_detection_model.keras"
+model_path = r"C:\Users\wildw\OneDrive\Desktop\UniQuantumSense\models\facial_detection_model.keras"
 
 # Initialize model variable
 model = None

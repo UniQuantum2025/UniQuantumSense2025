@@ -2,10 +2,10 @@ from PIL import Image
 import os
 
 # Directories for test and trial images
-test_faces_dir = r"C:\Users\wildw\OneDrive\Documents\CMIT-450 Senior Seminar Project\Assignment\Week 14\UniQuantumSense\UniQ2025\Dataset\Predict Images\Test\Faces"
-test_non_faces_dir = r"C:\Users\wildw\OneDrive\Documents\CMIT-450 Senior Seminar Project\Assignment\Week 14\UniQuantumSense\UniQ2025\Dataset\Predict Images\Test\Non_Faces"
-trial_faces_dir = r"C:\Users\wildw\OneDrive\Documents\CMIT-450 Senior Seminar Project\Assignment\Week 14\UniQuantumSense\UniQ2025\Dataset\Predict Images\Trial\Faces"
-trial_non_faces_dir = r"C:\Users\wildw\OneDrive\Documents\CMIT-450 Senior Seminar Project\Assignment\Week 14\UniQuantumSense\UniQ2025\Dataset\Predict Images\Trial\Non_Faces"
+test_faces_dir = r"C:\Users\wildw\OneDrive\Desktop\UniQuantumSense\Dataset\Predict Images\Test\Faces"
+test_non_faces_dir = r"C:\Users\wildw\OneDrive\Desktop\UniQuantumSense\Dataset\Predict Images\Test\Non_Faces"
+trial_faces_dir = r"C:\Users\wildw\OneDrive\Desktop\UniQuantumSense\Dataset\Predict Images\Trial\Faces"
+trial_non_faces_dir = r"C:\Users\wildw\OneDrive\Desktop\UniQuantumSense\Dataset\Predict Images\Trial\Non_Faces"
 
 # Function to load images
 def load_images(directory, file_range, file_type):

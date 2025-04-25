@@ -15,5 +15,5 @@ The UniQuantumSense project aims to develop an advanced product that leverages q
 ├── .gitattributes
 ├── .gitignore
 ├── .github                  # GitHub-specific files ( workflows)
-├── venv                     # Virtual environment 1
-└── myenv                   ## Virtual environment 2
+├── venv                     # Virtual environment
+└── myenv                   ## Virtual environment

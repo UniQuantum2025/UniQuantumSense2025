@@ -13,7 +13,7 @@ model = None
 
 def load_model():
     global model
-    model_path = r"C:\Users\wildw\OneDrive\Documents\CMIT-450 Senior Seminar Project\Assignment\Week 14\UniQuantumSense\UniQ2025\Dataset\facial_detection_model.keras"
+    model_path = r"C:\Users\wildw\OneDrive\Desktop\UniQuantumSense\facial_detection_model.keras"
 
     try:
         model = tf.keras.models.load_model(model_path)
@@ -23,7 +23,6 @@ def load_model():
 
 # Set to store hashes of processed images
 processed_hashes = set()
-
 
 def hash_image(image):
     """
@@ -97,7 +96,6 @@ def load_image():
 
     display_image(img)
 
-
 def display_image(img):
     """
     Display the given image in a new Tkinter window.
@@ -129,7 +127,6 @@ def display_image(img):
 
     window.deiconify()
     window.update_idletasks()
-
 def run_quantum_circuit_qiskit():
     """
     Placeholder function for running a quantum circuit using Qiskit.

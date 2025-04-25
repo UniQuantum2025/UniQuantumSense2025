@@ -1,4 +1,4 @@
-# Import necessary libraries
+# Import libraries
 import os  # For handling file paths and directories
 import tensorflow as tf  # Import TensorFlow
 from tensorflow.keras import layers, models  # Import layers and models from Keras
@@ -6,12 +6,12 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator  # For image
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint  # For training callbacks
 
 def create_model():
-    
     # Create a sequential model
     model = models.Sequential()
 
-    # Add convolutional layers and pooling layers
-    model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=(224, 224, 3)))
+    # Use Input layer for specifying input shape
+    model.add(layers.Input(shape=(224, 224, 3)))
+    model.add(layers.Conv2D(32, (3, 3), activation='relu'))
     model.add(layers.MaxPooling2D((2, 2)))
     model.add(layers.Conv2D(64, (3, 3), activation='relu'))
     model.add(layers.MaxPooling2D((2, 2)))
@@ -24,7 +24,7 @@ def create_model():
     return model
 
 # Adjust path based on dataset
-train_dir = r"C:\Users\wildw\OneDrive\Documents\CMIT-450 Senior Seminar Project\Assignment\Week 14\UniQuantumSense\UniQ2025\Dataset"
+train_dir = r"C:\Users\wildw\OneDrive\Desktop\UniQuantumSense\Dataset"
 
 # Create an instance of ImageDataGenerator for data preprocessing
 train_datagen = ImageDataGenerator(rescale=1./255)
@@ -38,7 +38,6 @@ try:
         class_mode='binary'
     )
 except Exception as e:
-
     # Print error message and exit if dataset loading fails
     print(f"Error loading dataset: {e}")
     exit()
@@ -55,5 +54,5 @@ model_checkpoint = ModelCheckpoint('best_model.keras', save_best_only=True)
 model.fit(train_generator, epochs=10, callbacks=[early_stopping, model_checkpoint])
 
 # Save the trained model
-model.save(r"C:\Users\wildw\OneDrive\Documents\CMIT-450 Senior Seminar Project\Assignment\Week 14\UniQuantumSense\UniQ2025\Dataset\facial_detection_model.keras")
+model.save(r"C:\Users\wildw\OneDrive\Desktop\UniQuantumSense\facial_detection_model.keras")
 print("Model saved as facial_detection_model.keras")
