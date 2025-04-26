@@ -17,7 +17,6 @@ def load_and_preprocess_image(img_path):
 
 # Function to measure performance for a given image
 def measure_performance(img_path):
-
     # Measure loading time
     start_time = time.time()
     new_data = load_and_preprocess_image(img_path)
@@ -33,21 +32,19 @@ def measure_performance(img_path):
 # Test Cases with updated paths
 test_cases = {}
 
-# Adding facial images from 1.png to 95.png
-for i in range(1, 96):  # From 1 to 95
-    test_cases[f"Single Image (Facial) {i}"] = r"C:\Users\wildw\OneDrive\Desktop\UniQuantumSense\Dataset\Trained Images\Faces\{}.png".format(i)
+# List of specific facial images to test
+facial_image_files = ["1.png", "7.png", "8.png", "12.png", "21.png", "26.png", "31.png", "41.png"]
 
-# Adding non-facial images (136.jpg to 170.jpg)
-for i in range(136, 171):  # From 136 to 170
-    test_cases[f"Single Image (Non-Facial) {i}"] = r"C:\Users\wildw\OneDrive\Desktop\UniQuantumSense\Dataset\Trained Images\Non_Faces\{}.jpg".format(i)
+# List of specific non-facial images to test
+non_facial_image_files = ["146.jpg", "150.jpg", "154.jpg", "162.jpg", "170.jpg", "174.jpg", "199.jpg"]
 
-# Adding additional non-facial images (171.jpg to 181.jpg)
-for i in range(171, 182):  # From 171 to 181
-    test_cases[f"Single Image (Non-Facial) {i}"] = r"C:\Users\wildw\OneDrive\Desktop\UniQuantumSense\Dataset\Trained Images\Non_Faces\{}.jpg".format(i)
+# Adding facial images to test cases
+for filename in facial_image_files:
+    test_cases[f"Single Image (Facial) {filename}"] = os.path.join(r"C:\Users\wildw\OneDrive\Desktop\UniQuantumSense\Dataset\Faces", filename)
 
-# Adding additional non-facial images (196.jpg to 199.jpg)
-for i in range(196, 200):  # From 196 to 199
-    test_cases[f"Single Image (Non-Facial) {i}"] = r"C:\Users\wildw\OneDrive\Desktop\UniQuantumSense\Dataset\Trained Images\Non_Faces\{}.jpg".format(i)
+# Adding non-facial images to test cases
+for filename in non_facial_image_files:
+    test_cases[f"Single Image (Non-Facial) {filename}"] = os.path.join(r"C:\Users\wildw\OneDrive\Desktop\UniQuantumSense\Dataset\Non_Faces", filename)
 
 # Execute tests
 for case, img_path in test_cases.items():

@@ -2,38 +2,35 @@ from PIL import Image
 import os
 
 # Directories containing the images
-facial_images_dir = r"C:\Users\wildw\OneDrive\Documents\CMIT-450 Senior Seminar Project\Assignment\Week 14\UniQuantumSense\UniQ2025\Dataset\Trained Images\Faces"
-non_facial_images_dir = r"C:\Users\wildw\OneDrive\Documents\CMIT-450 Senior Seminar Project\Assignment\Week 14\UniQuantumSense\UniQ2025\Dataset\Trained Images\Non_Faces"
+facial_images_dir = r"C:\Users\wildw\OneDrive\Desktop\UniQuantumSense\Dataset\Faces"
+non_facial_images_dir = r"C:\Users\wildw\OneDrive\Desktop\UniQuantumSense\Dataset\Non_Faces"
 
 # List to hold all images
 images = []
 
-# Load facial images (PNG)
-for i in range(1, 100):  # From 1 to 99
-    img_path = os.path.join(facial_images_dir, f"{i}.png")
-    if os.path.isfile(img_path):
-        img = Image.open(img_path)
-        images.append(img)
-    else:
-        print(f"Facial Image {i}.png not found at {img_path}.")
+# List of specific facial images to load
+facial_image_files = ["1.png", "7.png", "8.png", "12.png", "21.png", "26.png", "31.png", "41.png"]
 
-# Load non-facial images (JPG)
-for i in range(136, 182):  # From 136 to 181
-    img_path = os.path.join(non_facial_images_dir, f"{i}.jpg")
+# Load specified facial images (PNG)
+for filename in facial_image_files:
+    img_path = os.path.join(facial_images_dir, filename)
     if os.path.isfile(img_path):
         img = Image.open(img_path)
         images.append(img)
     else:
-        print(f"Non-Facial Image {i}.jpg not found at {img_path}.")
+        print(f"Facial Image {filename} not found at {img_path}.")
 
-# Also include the last few non-facial images (196 to 199)
-for i in range(196, 200):  # From 196 to 199
-    img_path = os.path.join(non_facial_images_dir, f"{i}.jpg")
+# List of specific non-facial images to load
+non_facial_image_files = ["146.jpg", "150.jpg", "154.jpg", "162.jpg", "170.jpg", "174.jpg", "199.jpg"]
+
+# Load specified non-facial images (JPG)
+for filename in non_facial_image_files:
+    img_path = os.path.join(non_facial_images_dir, filename)
     if os.path.isfile(img_path):
         img = Image.open(img_path)
         images.append(img)
     else:
-        print(f"Non-Facial Image {i}.jpg not found at {img_path}.")
+        print(f"Non-Facial Image {filename} not found at {img_path}.")
 
 # Combine images horizontally
 if images:
@@ -49,8 +46,8 @@ if images:
         combined_image.paste(img, (x_offset, 0))
         x_offset += img.width
 
-    # Save the combined image
-    output_image_path = r"C:\Users\wildw\OneDrive\Documents\CMIT-450 Senior Seminar Project\Assignment\Week 14\UniQuantumSense\UniQ2025\Dataset\combined_image.png"
+    # Save the combined image to the specified output path
+    output_image_path = r"C:\Users\wildw\OneDrive\Desktop\UniQuantumSense\Dataset\combined_image.png"
     combined_image.save(output_image_path)
     print(f"Combined image saved as {output_image_path}")
 else:
